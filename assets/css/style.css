@@ -10,12 +10,15 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  background-image: url(../image/num4.jpg);  
+  background-size: cover;
 }
 
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
 }
+
 
 .wrapper {
   padding-top: 30px;
@@ -27,14 +30,18 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: white;
+  font-family: cursive;
+  
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
+  background-image: url(../image/num2.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  border-radius: 25px;
   border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  box-shadow: rgba(175, 185, 187, 0.685) 5px 10px 20px 15px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
@@ -42,6 +49,10 @@ header {
   padding: 30px 40px;
 }
 
+.card-header {
+  color: white;
+  font-family: cursive;
+}
 .card-header::after {
   content: " ";
   display: block;
@@ -52,6 +63,10 @@ header {
 
 .card-body {
   min-height: 100px;
+}
+
+.card-body textarea {
+background-color:rgba(207, 204, 204, 0.767);
 }
 
 .card-footer {
@@ -107,7 +122,7 @@ button[disabled] {
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 85px;
+  padding-bottom: 55px;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
