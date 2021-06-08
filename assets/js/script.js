@@ -9,12 +9,11 @@ var speecialChar = "!@#$%^&*()_+"
 function generatePassword() {
   var newPassword= ""
   var selectedPool = ""
-  //Pompt to get lenght of password value
-  var lenght = prompt ("How long do you want your password to be?")
-  console.log(lenght);
+  //Pompt to get len of password value
+  var len = parseInt(prompt ("How long do you want your password to be?"))
   // Repeat the prompt until a number between 8-128 is entered
-  while(lenght<8||lenght >128){
-    var lenght = prompt ("Please enter a number between 8 and 128. How long do you want your password to be?")
+  while( Number.isNaN(len) || len<8 || len > 128 ){
+    var len = parseInt(prompt ("Password MUST be a number between 8 and 128. How long do you want your password to be?"))
   }
   //Criteria Promt
   var useUpper = confirm ("Do you want to include Upper Case Letters?");
@@ -29,34 +28,44 @@ function generatePassword() {
  //Statments to choose criteria for password
   if(useUpper){
     selectedPool = selectedPool + capitalLetters;
-    console.log(selectedPool)
+    newPassword += capitalLetters.charAt(Math.floor(Math.random())*capitalLetters.length)
   };
+
   if(useLower){
     selectedPool = selectedPool + lowercCase;
-    console.log(selectedPool)
+    newPassword += lowercCase.charAt(Math.floor(Math.random())*lowercCase.length)
+
   };
+
   if(useSpecialChar){
     selectedPool = selectedPool + speecialChar;
-    console.log(selectedPool)
+    newPassword += speecialChar.charAt(Math.floor(Math.random())*speecialChar.length)
+
   };
+
   if(useNumbers){
     selectedPool = selectedPool + numbers;
-    console.log(selectedPool)
+    newPassword += numbers.charAt(Math.floor(Math.random())*numbers.length)
+
   }; 
-  for(var i=0; i <lenght; i++) {
-    newPassword += selectedPool.charAt(Math.floor(Math.random())*lenght); 
-    console.log(newPassword) 
-    return newPassword;
-  }
-  // var randomPick = function(){
-  //   for (var i= 0; i < lenght; i++) {
-  //     newPassword += selectedPool.charAt(Math.floor(Math.random()*lenght));
-  //     console.log(newPassword);
-  //     return newPassword;
-  //   }
-  // }
-  // randomPick()
-    //console.log(randomPick())
+  console.log(selectedPool)
+
+  // for(var i=0; i <len; i++) {
+  //   newPassword +=selectedPool.charAt(Math.floor(Math.random())*len); 
+  //   console.log(newPassword) 
+
+    //return newPassword;
+  
+  //}
+       for (var i= newPassword.length; i < len; i++) {
+        newPassword += selectedPool.charAt(Math.floor(Math.random()*selectedPool.length));
+      }
+      return newPassword;
+   // }
+      //randomPick();
+     // console.log(randomPick())
+  //   return randomPick()
+  
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
