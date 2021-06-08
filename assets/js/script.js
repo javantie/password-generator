@@ -1,20 +1,4 @@
 // Assignment code here
-// var passwordLenght = 128
-// var chatset = " 123456789abcdefghijklmnopqurstuvwxyz!@#$%^&*()_+"
-
-// //Create Function to generate password: 
-// var generatePassword = function(){
-//   var criteriaPromt = window.prompt(" Please choose password criteria")
-
-// //Get random number funtion
-//   function getRandomNum() {
-//     return Math.floor(Math.random() * 128) +1
-//   }
-//   for (var i = 0; i<chatset; i++){
-//         console.log(getRandomNum([i]))
-//   }
-
-
 
 // Charater Selection
 var capitalLetters = "ABCDEFGHIJKLMNOPQURSTUVWXYZ"
@@ -25,70 +9,55 @@ var speecialChar = "!@#$%^&*()_+"
 function generatePassword() {
   var newPassword= ""
   var selectedPool = ""
+  //Pompt to get lenght of password value
   var lenght = prompt ("How long do you want your password to be?")
-
+  console.log(lenght);
+  // Repeat the prompt until a number between 8-128 is entered
   while(lenght<8||lenght >128){
     var lenght = prompt ("Please enter a number between 8 and 128. How long do you want your password to be?")
   }
-
-  var useUpper = confirm ("Do you want to include Upper Case?");
-  var useLower = confirm ("Do you want to include Lower Case?");
+  //Criteria Promt
+  var useUpper = confirm ("Do you want to include Upper Case Letters?");
+  var useLower = confirm ("Do you want to include Lower Case Letters?");
   var useSpecialChar = confirm ("Do you want to include Special Charaters?");
   var useNumbers = confirm ("Do you want to include Numbers?");
+  console.log(useSpecialChar);
+  console.log(useNumbers);
+  console.log(useLower);
+  console.log(useUpper);
 
-
-  if(useLower){
-    selectedPool = selectedPool + lowercCase;
-  };
+ //Statments to choose criteria for password
   if(useUpper){
     selectedPool = selectedPool + capitalLetters;
+    console.log(selectedPool)
+  };
+  if(useLower){
+    selectedPool = selectedPool + lowercCase;
+    console.log(selectedPool)
   };
   if(useSpecialChar){
     selectedPool = selectedPool + speecialChar;
+    console.log(selectedPool)
   };
   if(useNumbers){
     selectedPool = selectedPool + numbers;
-  };
-
-//   //Get random number funtion
-//   function getRandomNum() {
-//     return Math.floor(Math.random() * 128)
-//   }
-//   for (var i = 0; i<chatset; i++){
-//         console.log(getRandomNum([i]))
-//   }
-// }
-
-
+    console.log(selectedPool)
+  }; 
+  for(var i=0; i <lenght; i++) {
+    newPassword += selectedPool.charAt(Math.floor(Math.random())*lenght); 
+    console.log(newPassword) 
+    return newPassword;
+  }
+  // var randomPick = function(){
+  //   for (var i= 0; i < lenght; i++) {
+  //     newPassword += selectedPool.charAt(Math.floor(Math.random()*lenght));
+  //     console.log(newPassword);
+  //     return newPassword;
+  //   }
+  // }
+  // randomPick()
+    //console.log(randomPick())
 }
-
-//Create Function to generate password: 
-
-
-  
-
-
-
-
-// var generatePassword = function(){
-//   var criteriaPromt = window.prompt("Please choose password criteria")
-
-// //Get random number funtion
-//   function getRandomNum() {
-//     return Math.floor(Math.random() * 128) +1
-//   }
-//   for (var i = 0; i<chatset; i++){
-//         console.log(getRandomNum([i]))
-//   }
-// }
-
-
-
-// for (var i = 0; i<lenght; i++){
-//  newPassword=newPassword + 
-// }
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
