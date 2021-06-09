@@ -18,38 +18,24 @@ var generatePassword = function () {
   //Criteria Promt
   var useUpper = confirm ("Do you want to include Upper Case Letters?");
   var useLower = confirm ("Do you want to include Lower Case Letters?");
-  var useSpecialChar = confirm ("Do you want to include Special Charaters?");
+  var useSpecialChar = confirm ("Do you want to include Special Characters?");
   var useNumbers = confirm ("Do you want to include Numbers?");
  
-  // //test code
-  // var charaterPool = { 
-  //   uppper: useUpper,
-  //   small: useLower,
-  //   special: useSpecialChar,
-  //   Num: useNumbers
-  // }
-  // console.log(charaterPool);
-
-  // var SelectedCharOptions = function(){
-  //   if (charaterPool.uppper||charaterPool.small||charaterPool.special||charaterPool.Num){
-  // }
-  //}
-
  //Statments to choose criteria for password
   if(useUpper){
-    selectedPool = selectedPool + capitalLetters;
+    selectedPool += capitalLetters;
     newPassword += capitalLetters.charAt(Math.floor(Math.random())*capitalLetters.length);
   };
   if(useLower){
-    selectedPool = selectedPool + lowercCase;
+    selectedPool += lowercCase;
     newPassword += lowercCase.charAt(Math.floor(Math.random())*lowercCase.length);
   };
   if(useSpecialChar){
-    selectedPool = selectedPool + speecialChar;
+    selectedPool += speecialChar;
     newPassword += speecialChar.charAt(Math.floor(Math.random())*speecialChar.length);
   };
   if(useNumbers){
-    selectedPool = selectedPool + numbers;
+    selectedPool +=numbers;
     newPassword += numbers.charAt(Math.floor(Math.random())*numbers.length);
   }; 
 
@@ -72,6 +58,5 @@ function writePassword() {
   passwordText.value = password;
 
 };
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
