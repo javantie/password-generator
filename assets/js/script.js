@@ -4,15 +4,15 @@
 var capitalLetters = "ABCDEFGHIJKLMNOPQURSTUVWXYZ";
 var lowercCase = "abcdefghijklmnopqurstuvwyz";
 var numbers = "123456789";
-var speecialChar = "!@#$%^&*()_+";
+var speecialChar = "!@#$%^&*()_+-=:;'<>?/.,{}[]|\~`";
 
-function generatePassword() {
+var generatePassword = function () {
   var newPassword= "";
   var selectedPool = "";
   //Pompt to get length of password value
   var len = parseInt(prompt ("How long do you want your password to be?"));
   // Repeat the prompt until a number between 8-128 is entered
-  while( Number.isNaN(len) || len<8 || len > 128 ){
+  while(Number.isNaN(len) || len<8 || len > 128 ){
     var len = parseInt(prompt ("Password MUST be a number between 8 and 128. How long do you want your password to be?"))
   }
   //Criteria Promt
@@ -20,40 +20,45 @@ function generatePassword() {
   var useLower = confirm ("Do you want to include Lower Case Letters?");
   var useSpecialChar = confirm ("Do you want to include Special Charaters?");
   var useNumbers = confirm ("Do you want to include Numbers?");
-  console.log(useSpecialChar);
-  console.log(useNumbers);
-  console.log(useLower);
-  console.log(useUpper);
+ 
+  // //test code
+  // var charaterPool = { 
+  //   uppper: useUpper,
+  //   small: useLower,
+  //   special: useSpecialChar,
+  //   Num: useNumbers
+  // }
+  // console.log(charaterPool);
+
+  // var SelectedCharOptions = function(){
+  //   if (charaterPool.uppper||charaterPool.small||charaterPool.special||charaterPool.Num){
+  // }
+  //}
 
  //Statments to choose criteria for password
   if(useUpper){
     selectedPool = selectedPool + capitalLetters;
     newPassword += capitalLetters.charAt(Math.floor(Math.random())*capitalLetters.length);
   };
-
   if(useLower){
     selectedPool = selectedPool + lowercCase;
     newPassword += lowercCase.charAt(Math.floor(Math.random())*lowercCase.length);
-
   };
-
   if(useSpecialChar){
     selectedPool = selectedPool + speecialChar;
     newPassword += speecialChar.charAt(Math.floor(Math.random())*speecialChar.length);
-
   };
-
   if(useNumbers){
     selectedPool = selectedPool + numbers;
     newPassword += numbers.charAt(Math.floor(Math.random())*numbers.length);
-
   }; 
 
   //For loop to generate a new passwork base on the selected criteria in selected pool
   for (var i= newPassword.length; i < len; i++) {
     newPassword += selectedPool.charAt(Math.floor(Math.random()*selectedPool.length));
   };
-    return newPassword;
+ 
+  return newPassword;
 };
 
 // Get references to the #generate element
